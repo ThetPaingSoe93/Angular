@@ -1,0 +1,39 @@
+.list {
+    list-style: none;
+    width: 120px;
+
+    li {
+        cursor: pointer;
+        border: 1px solid blue;
+
+        &.selected {
+            border: 1px solid green;
+
+            span {
+                &:first-child {
+                    background: green;
+                }
+
+                &:last-child {
+                    color: green;
+                }
+            }
+        }
+
+        span {
+            &:first-child {
+                background: blue;
+                color: #fff;
+                display: inline-block;
+                width: 30px;
+                height: 30px;
+                line-height: 30px;
+                text-align: center;
+            }
+
+            &:last-child {
+                padding: 5px 5px 5px 10px;
+            }
+        }
+    }
+}

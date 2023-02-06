@@ -1,0 +1,14 @@
+<h2>Hello {{name}}</h2>
+<button (click)="fireEvent()">Send Event</button>
+
+<h3>{{name2 | lowercase }}</h3>
+<h3>{{name2 | uppercase }}</h3>
+<h3>{{message2 | titlecase }}</h3>
+<h3>{{message2 | slice:3 }}</h3>
+<h3>{{person | json}}</h3>
+<h3>{{5.678 | number:'1.2-3'}}</h3>
+<h3>{{5.678 | number:'3.4-4'}}</h3>
+<h3>{{5.678 | number:'1.1-2'}}</h3>
+
+<h3>{{5.25 | currency:'AFN'}}</h3>
+<h3>{{date | date:'short'}}</h3>
