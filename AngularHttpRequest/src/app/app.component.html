@@ -1,0 +1,54 @@
+<div class="main-area">
+    <div class="content-area">
+        <div class="header">
+            <h1>Manage Products</h1>
+        </div>
+        <div class="container">
+            <div class="form-area">
+                <h3>Create Product</h3>
+                <form #productForm="ngForm" (ngSubmit)="onProductCreate(productForm.value)">
+                    <label>Product Name</label>
+                    <input type="text" name="pName" ngModel>
+                    <label>Product Description</label>
+                    <input type="text" name="desc" ngModel>
+                    <label>Product Price</label>
+                    <input type="text" name="price" ngModel>
+                    <input type="submit" value="{{editMode? 'Update Product':'Add Product'}}" class="btn submit">
+                </form>
+            </div>
+            <div class="product-display-area">
+                <h3>All Products</h3>
+                <table id="products">
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Price</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                    <tr *ngIf="allProducts.length<1 && !isFetching">
+                        <td colspan="5">No Product Available</td>
+                    </tr>
+                    <tr *ngIf="isFetching">
+                        <td colspan="5">Loading...</td>
+                    </tr>
+                    <tr *ngFor="let prod of allProducts,index as i">
+                        <td>{{i+1}}</td>
+                        <td>{{prod.pName}}</td>
+                        <td>{{prod.desc}}</td>
+                        <td>{{prod.price}}</td>
+                        <td>
+                            <input type="submit" value="Delete" class="btn delete" (click)="onDeleteProduct(prod.id)">
+                        </td>
+                        <td>
+                            <input type="submit" value="Edit" class="btn update" (click)="onEditClick(prod.id)">
+                        </td>
+                    </tr>
+                </table>
+                <input type="submit" value="Fetch Product" class="btn fetch" (click)="onProductsFetch()">
+                <input type="submit" value="Clear Product" class="btn clear" (click)="onDeleteAllProduct()">
+            </div>
+        </div>
+    </div>
+</div>
